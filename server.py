@@ -1,10 +1,10 @@
+
 import http.server
 import socketserver
 import json
 import requests
 import http.client
 
-from Seq import Seq
 
 PORT = 8000
 
@@ -51,7 +51,6 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
                     self.send_response(200)
                     self.send_header('Content-Type', 'text/html')
 
-
                 elif end == '/karyotype':
                     write_test('Endpoint' + end)
                     contents = self.handle_info_assembly()
@@ -87,31 +86,34 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
 
         return
 
-
-
     def attend_info_species(self):
         request = SERVER + ENDPOINT[0]
-        r = requests.get(request, headers = headers)
+        r = requests.get(request, headers=headers)
         print("Sending request:", request)
-
-        write_test('Request' + request)
-
+        write_test("request: " + request)
         data = r.json()
-        print("CONTENT: ")
-        print(data)
+        write_test("Response: " + str(data))
 
-        write_test('Response' + str(data))
+        contents = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Species List</title></head>' \
+                   '<body style="background-color: white;"><h1>List of species</h1><ol>'
+        l = self.path.split('=')[1]
 
-        limit = len(data['species'])
+        if l == '':
+            for index in range(len(data['species'])):
+                contents += "<li>"
+                contents += data['species'][index]['common_name']
+                contents += "</li>"
+
+            contents += "</ol></body></html>"
+        else:
+            for index in range(len(data['species'][:int(l)])):
+                contents += "<li>"
+                contents += data['species'][index]['common_name']
+                contents += "</li>"
+
+            contents += "</ol></body></html>"
 
 
-        contents = '<!DOCTYPE html><html lang="en"<head><meta charset="UTF-8"><title>Main</title></head>'\
-                   '<body><h1>Main page</h1>'
-        for index in range(limit):
-            contents += '<li>'
-            contents += data['species'][index]['common name']
-            contents += '</li>'
-        contents += '</ol><body><html>'
 
 
         return contents
@@ -227,9 +229,6 @@ with socketserver.TCPServer(("", PORT), Handler) as httpd:
     except KeyboardInterrupt:
         print('Stop')
 httpd.server_close()
-
-
-
 
 
 
