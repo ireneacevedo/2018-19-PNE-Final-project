@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+</head>
+<body>
+<h1>Main page</h1>
+</body>
+<ul>
+
+    <li>List of all the availables species on the database</li>
+    <form action="listSpecies" method="get">
+     You can restrict the length of the list:  <input type="number" name="limit" min="0" max="199">
+    <input type="submit"/>
+    </form>
+    <p></p>
+    <li>Information about the karyotype of a species</li>
+    <form action="karyotype" method="get">
+        Species desired:  <input type="text" name="specie">
+
+    <input type="submit"/>
+    </form>
+    <p></p>
+    <li>Length of a specific chromosome</li>
+        <form action="chromosomeLength" method="get">
+            <br>Species and chromosome desired:</br>
+        Species:<input type="text" name="specie">
+        Chromosome: <input type="text" name="chromo">
+
+
+            <input type="submit"/>
+        </form>
+
+</ul>
+</html>
