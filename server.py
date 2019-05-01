@@ -96,7 +96,11 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
 
         contents = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Species List</title></head>' \
                    '<body style="background-color: white;"><h1>List of species</h1><ol>'
-        l = self.path.split('=')[1]
+
+        try:
+            l = self.path.split('=')[1].split('&')[0]
+        except IndexError:
+            l = 199
 
         if l == '':
             for index in range(len(data['species'])):
@@ -112,9 +116,6 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
                 contents += "</li>"
 
             contents += "</ol></body></html>"
-
-
-
 
         return contents
 
