@@ -14,11 +14,10 @@ This file is were I have tested the endpoints.
 
 2) '/karyotype'
 
-   - http://localhost:8000/karyotype?specie=cat
-   <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Karyotype of cat</title></head><body style="background-color: aquamarine;"><h1>Karyotype of cat</h1><ol><li>A1</li><li>A2</li><li>A3</li><li>B1</li><li>B2</li><li>B3</li><li>B4</li><li>C1</li><li>C2</li><li>D1</li><li>D2</li><li>D3</li><li>D4</li><li>E1</li><li>E2</li><li>E3</li><li>F1</li><li>F2</li><li>X</li><li>MT</li></ol></body></html>
-
+   - http://localhost:8000/karyotype?specie=pig
+   <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Karyotype of pig</title></head><body style="background-color: aquamarine;"><h1>Karyotype of pig</h1><ol><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li><li>18</li><li>X</li><li>Y</li><li>MT</li></ol></body></html>
 
 3) '/chromosomeLength'
 
-    -http://localhost:8000/chromosomeLength?specie=cat&chromo=A2
-    <!DOCTYPE html><html lang="en" dir="ltr"><head><meta charset="UTF-8"><title>Chromosome length</title><head><body style="background-color: yellow;"><h1>Chromosome length</h1><body> The length of the chromosome is 171471747.</body></html>
+    -http://localhost:8000/chromosomeLength?specie=pig&chromo=4
+    <!DOCTYPE html><html lang="en" dir="ltr"><head><meta charset="UTF-8"><title>Chromosome length</title><head><body style="background-color: yellow;"><h1>Chromosome length</h1><body> The length of the chromosome is 130910915.</body></html>
