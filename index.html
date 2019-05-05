@@ -5,27 +5,28 @@
     <title>Main</title>
 </head>
 <body>
-<h1>Main page</h1>
+<h1>Main menu:</h1>
 </body>
 <ul>
+    <body style="background-color: lightpink;">
+    <p>Please select one of the options and enter the requested parameters:</p>
 
-    <li>List of all the availables species on the database</li>
+    <b>Available species:</b>
     <form action="listSpecies" method="get">
-     You can restrict the length of the list:  <input type="number" name="limit" min="0" max="199">
+     <li>If desired you can choose how many species do you want:  <input type="number" name="limit" min="0" max="199">
     <input type="submit"/>
     </form>
     <p></p>
-    <li>Information about the karyotype of a species</li>
+    <b>Karyotype of a species information:</b>
     <form action="karyotype" method="get">
-        Species desired:  <input type="text" name="specie">
+        <li>Species desired:  <input type="text" name="specie">
 
     <input type="submit"/>
     </form>
     <p></p>
-    <li>Length of a specific chromosome</li>
+    <b>Specific chromosome length:</b>
         <form action="chromosomeLength" method="get">
-            <br>Species and chromosome desired:</br>
-        Species:<input type="text" name="specie">
+            <li>Specie:<input type="text" name="specie">
         Chromosome: <input type="text" name="chromo">
 
 
