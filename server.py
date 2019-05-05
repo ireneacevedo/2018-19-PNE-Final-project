@@ -151,12 +151,6 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
                         '<li> The name ' + chromo + ' is not valid or in the list.</li>' \
                         '<li> Main page to try again: <li>' \
                         '<a href = "http://localhost:8000">Link to the main page.</a></body></html>'
-            """'<!DOCTYPE html><html lang="en" dir="ltr"><head><meta charset="UTF-8">' \
-                       '<title>ERROR</title>' \
-                       '</head>' \
-                       '<body style="background-color: red">' \
-                       '<h1>ERROR <h1>' \""""
-
         else:
             contents = '<!DOCTYPE html><html lang="en" dir="ltr"><head>'  \
                        '<meta charset="UTF-8">' \
